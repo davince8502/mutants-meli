@@ -1,0 +1,13 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://34.125.131.23:5432/mutants?currentSchema=mutants_analytics
+    username: postgres
+    password: postgres
+    cachePrepStmts: true
+    prepStmtCacheSize: 250
+    prepStmtCacheSqlLimit: 2048
+    useServerPrepStmts: true
+
+
+
+
