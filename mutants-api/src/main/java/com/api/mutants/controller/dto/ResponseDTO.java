@@ -11,9 +11,8 @@ import lombok.*;
 public class ResponseDTO {
 
     private StatusDTO status;
-    private Object data;
 
-    public static ResponseDTO apply(String response, Object data){
-        return new ResponseDTO(new StatusDTO(response), data);
+    public static ResponseDTO apply(String response){
+        return new ResponseDTO(new StatusDTO(response));
     }
 }

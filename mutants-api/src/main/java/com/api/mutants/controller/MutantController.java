@@ -1,14 +1,19 @@
 package com.api.mutants.controller;
 
 
-import com.google.gson.Gson;
 import com.api.mutants.controller.dto.ResponseDTO;
 import com.api.mutants.controller.dto.SampleDTO;
 import com.api.mutants.controller.dto.StatusDTO;
-import com.api.mutants.domain.service.MutantService;
-import com.api.mutants.kafka.Producer;
 import com.api.mutants.domain.dto.Stat;
 import com.api.mutants.domain.entity.DnaVerified;
+import com.api.mutants.domain.service.MutantService;
+import com.api.mutants.kafka.Producer;
+import com.google.gson.Gson;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -31,6 +36,16 @@ public class MutantController {
   @Autowired
   private Producer producer;
 
+  @Operation(summary = "Validacion ADN Mutante")
+  @ApiResponses(value = {
+          @ApiResponse(responseCode = "200", description = "ADN es Mutante",
+                  content = { @Content(mediaType = "application/json",
+                          schema = @Schema(implementation = ResponseDTO.class)) }),
+          @ApiResponse(responseCode = "403", description = "ADN es Humano",
+                  content = { @Content(mediaType = "application/json",
+                          schema = @Schema(implementation = ResponseDTO.class))}),
+          @ApiResponse(responseCode = "400", description = "Si algo salio mal",
+                  content = @Content) })
   @PostMapping(value = "/mutant" )
   public ResponseEntity<ResponseDTO> detectMutant(@RequestBody @Valid SampleDTO sample) throws Exception {
 
@@ -55,7 +70,13 @@ public class MutantController {
 
   }
 
-
+ @Operation(summary = "Consulta de Estadisticas")
+ @ApiResponses(value = {
+         @ApiResponse(responseCode = "200", description = "Estadisticas de ADNs",
+                 content = { @Content(mediaType = "application/json",
+                         schema = @Schema(implementation = Stat.class)) }),
+         @ApiResponse(responseCode = "400", description = "Si algo salio mal",
+                 content = @Content) })
   @GetMapping(value = "/stats" )
   public ResponseEntity<Stat> getStats() throws Exception {
 
