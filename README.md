@@ -30,19 +30,19 @@ La arquitectura de la aplicación, se diseño principalmente teniendo en cuenta 
 
 EL hacer uso de Google App Engine permite tener instancias en ambiente flexible, 
 que administra los ciclos de vida de N instancias de una aplicación respondiendo al volumen
-de tráfico en momento determinado. Aprovechando esto, se desplegó el proyecto `muntants-api` 
+de tráfico en momento determinado. Aprovechando esto, se desplegó el proyecto `mutants-api` 
 con una configuración de mínimo 1 instancia hasta 10 instancias como máximo.
  
-El proyecto `muntants-api` expone los endpoints del api , así como de analizar las cadenas de ADN enviadas. 
+El proyecto `mutants-api` expone los endpoints del api , así como de analizar las cadenas de ADN enviadas. 
 Luego genera la información necesaria para ser guardada en la base de datos, y la enviá por medio de un evento sobre Kafka.
  
  Se implemento la conexión a Kafka Confluence Cloud, para que actuara como Buffer y 
  encolara las peticiones de inserción hacia la Base de datos. 
- Esto permite manejar una gran cantidad de peticiones HTTP por parte del proyecto `muntants-api`, 
+ Esto permite manejar una gran cantidad de peticiones HTTP por parte del proyecto `mutants-api`, 
  sin que este sature la BD (si existiera una conexión sincronica) y al mismo tiempo mantenga muchas conexiones abiertas, 
  obligando a generar un escalamiento de instancias grande que impactaría los recursos disponibles.
 
-El proyecto `muntants-consumer` se encarga de recibir los eventos encolados en Kafka , 
+El proyecto `mutants-consumer` se encarga de recibir los eventos encolados en Kafka , 
 transforma la información relacionada al ADN analizado y finalmente realiza el proceso de persistencia.
 Se configuro de tal forma que exista 1 instancia activa y máximo 2. 
 
@@ -252,7 +252,7 @@ spring:
 ```
 
 
-## Ejecutar aplicaion Mutants - API 
+## Ejecutar aplicación Mutants - API 
 
 Inicar la aplicacion Spring boot con el siguente comando
 
@@ -261,7 +261,7 @@ Inicar la aplicacion Spring boot con el siguente comando
 ```
 
 
-## Ejecutar aplicaion Mutants - Consumer
+## Ejecutar aplicación Mutants - Consumer
 
 ingresar a la carpeta del proyecto:
 
