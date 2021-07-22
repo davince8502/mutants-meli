@@ -51,7 +51,7 @@ Una mejora en velocidad de respuesta puede verse con la implementación de una B
 
 Google App Engine permite desplegar y configurar las aplicaciones como las de Spring Boot de forma sencilla. 
 Mediante la herramienta **gcloud** se podía realizar el despliegue en tiempo real, es decir que, tan pronto como se
-implementaba un cambio en el código, se genera una nueva versión de la aplicación y se despliega en la nube.
+implementaba un cambio en el código, se genera una nueva versión de la aplicación la cual es almacenado en Google Cloud Storage  y se despliega una instancia de Google APp Engine.
 
 Por otro lado, Kafka Cloud y SQL Cloud permiten trabajar desde la maquina local  
 con una conexión directa hacia la nube, facilitando la configuración de conexiones, desarrollo y pruebas.
