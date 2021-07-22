@@ -170,6 +170,11 @@
 						<exclude>com/api/mutants/domain/entity/*</exclude>
 						<exclude>com/api/mutants/domain/dto/*</exclude>
 						<exclude>com/api/mutants/controller/dto/*</exclude>
+						<exclude>**/*com/api/mutants/controller/GlobalExceptionHandlerController.class</exclude>
+						<exclude>**/*com/api/mutants/domain/builder/ObjectBuilder.class</exclude>
+						<exclude>**/*com/api/mutants/util/*</exclude>
+						<exclude>**/*com/api/mutants/exception/BadDataException.class</exclude>
+
 					</excludes>
 				</configuration>
 				<executions>
