@@ -32,6 +32,8 @@ EL hacer uso de Google App Engine permite tener instancias en ambiente flexible,
 que administra los ciclos de vida de N instancias de una aplicación respondiendo al volumen
 de tráfico en momento determinado. Aprovechando esto, se desplegó el proyecto `mutants-api` 
 con una configuración de mínimo 1 instancia hasta 10 instancias como máximo.
+
+Las primera o primeras peticiones demoraran alguno segundos en responder, si no se han realizado peticiones al API con anterioridad recientemente.
  
 El proyecto `mutants-api` expone los endpoints del api , y se encarga de analizar las cadenas de ADN enviadas via REST. 
 Luego genera la información necesaria para ser guardada en la base de datos, y la enviá sobre un evento a Kafka.
@@ -53,8 +55,7 @@ Google App Engine permite desplegar y configurar las aplicaciones como las de Sp
 Mediante la herramienta **gcloud** se podía realizar el despliegue en tiempo real, es decir que, tan pronto como se
 implementaba un cambio en el código, se genera una nueva versión de la aplicación la cual es almacenado en Google Cloud Storage  y se despliega una instancia de Google APp Engine.
 
-Por otro lado, Kafka Cloud y SQL Cloud permiten trabajar desde la maquina local  
-con una conexión directa hacia la nube, facilitando la configuración de conexiones, desarrollo y pruebas.
+Por otro lado, Kafka Cloud y SQL Cloud permiten trabajar desde la maquina local con una conexión directa hacia la nube, facilitando la configuración de conexiones, desarrollo y pruebas.
 
 
 
@@ -299,6 +300,13 @@ spring:
     url: jdbc:postgresql://.....
     username: user...
     password: clave...
+```
+
+ejecutar los scripts SQL ubcaidos en la carpeta `mutants-meli/mutants-api/src/main/resources/scripts_bd`
+
+```bash
+ V1__Crear_Esquema.sql
+ V2__Crear_Tablas.sql
 ```
 
 
