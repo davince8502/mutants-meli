@@ -72,7 +72,7 @@ con una conexión directa hacia la nube, facilitando la configuración de conexi
 
 ## Instalación Local
 
-####Clonar Repositorio
+**Clonar Repositorio**
 
 Situarse en el directorio deseado y clonar el repositorio:
 
@@ -85,11 +85,11 @@ ingresar a la carpeta del proyecto:
 cd mutants-meli/mutants-api
 ```
 
-####Importar Proyecto
+**Importar Proyecto**
 
 Importar el proyecto Maven al IDE de desarrollo deseado, ejemplo [IntelliJ IDEA](https://www.lagomframework.com/documentation/1.6.x/java/IntellijMaven.html).
 
-####Compilar Proyecto
+**Compilar Proyecto**
 
 para compilar el proyecto y descargar dependencias, ejecutar el siguiente comando en consola:
 
@@ -97,7 +97,7 @@ para compilar el proyecto y descargar dependencias, ejecutar el siguiente comand
 ./mvnw clean compile
 ```
 
-####Ejecutar pruebas de cobertura
+**Ejecutar pruebas de cobertura**
 
 Ejecutar las pruebas con el siguiente comando
 
@@ -269,11 +269,11 @@ ingresar a la carpeta del proyecto:
 cd mutants-meli/mutants-consumer
 ```
 
-####Importar Proyecto
+**Importar Proyecto**
 
 Importar el proyecto Maven al IDE de desarrollo deseado, ejemplo [IntelliJ IDEA](https://www.lagomframework.com/documentation/1.6.x/java/IntellijMaven.html).
 
-####Compilar Proyecto
+**Compilar Proyecto**
 
 para compilar el proyecto y descargar dependencias, ejecutar el siguiente comando en consola:
 
