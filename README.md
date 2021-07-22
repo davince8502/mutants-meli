@@ -33,14 +33,14 @@ que administra los ciclos de vida de N instancias de una aplicación respondiend
 de tráfico en momento determinado. Aprovechando esto, se desplegó el proyecto `mutants-api` 
 con una configuración de mínimo 1 instancia hasta 10 instancias como máximo.
  
-El proyecto `mutants-api` expone los endpoints del api , así como de analizar las cadenas de ADN enviadas. 
-Luego genera la información necesaria para ser guardada en la base de datos, y la enviá por medio de un evento sobre Kafka.
+El proyecto `mutants-api` expone los endpoints del api , y se encarga de analizar las cadenas de ADN enviadas via REST. 
+Luego genera la información necesaria para ser guardada en la base de datos, y la enviá sobre un evento a Kafka.
  
  Se implemento la conexión a Kafka Confluence Cloud, para que actuara como Buffer y 
  encolara las peticiones de inserción hacia la Base de datos. 
  Esto permite manejar una gran cantidad de peticiones HTTP por parte del proyecto `mutants-api`, 
- sin que este sature la BD (si existiera una conexión sincronica) y al mismo tiempo mantenga muchas conexiones abiertas, 
- obligando a generar un escalamiento de instancias grande que impactaría los recursos disponibles.
+ sin que este sature la BD (si existiera una conexión sincronica) y evitando al mismo tiempo el mantener muchas conexiones Http abiertas, 
+ obligando a generar un escalamiento de instancias enorme que impactaría a los recursos fisicos disponibles.
 
 El proyecto `mutants-consumer` se encarga de recibir los eventos encolados en Kafka , 
 transforma la información relacionada al ADN analizado y finalmente realiza el proceso de persistencia.
