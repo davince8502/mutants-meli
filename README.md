@@ -33,7 +33,7 @@ que administra los ciclos de vida de N instancias de una aplicación respondiend
 de tráfico en momento determinado. Aprovechando esto, se desplegó el proyecto `mutants-api` 
 con una configuración de mínimo 1 instancia hasta 10 instancias como máximo.
 
-Las primera o primeras peticiones demoraran alguno segundos en responder, si no se han realizado peticiones al API con anterioridad recientemente.
+La primera o las primeras peticiones demoraran alguno segundos en responder, si no se han realizado peticiones al API con anterioridad recientemente.
  
 El proyecto `mutants-api` expone los endpoints del api , y se encarga de analizar las cadenas de ADN enviadas via REST. 
 Luego genera la información necesaria para ser guardada en la base de datos, y la enviá sobre un evento a Kafka.
@@ -302,7 +302,7 @@ spring:
     password: clave...
 ```
 
-ejecutar los scripts SQL ubcaidos en la carpeta `mutants-meli/mutants-api/src/main/resources/scripts_bd`
+ejecutar los scripts SQL ubicados en la carpeta `mutants-meli/mutants-api/src/main/resources/scripts_bd`
 
 ```bash
  V1__Crear_Esquema.sql
