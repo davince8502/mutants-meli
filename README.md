@@ -1,4 +1,4 @@
-# ADN MUTANTE DETECTOR - MELI
+# ADN MUTANTE DETECTOR
 
 ## Objetivo
 EL proyecto se desarrollo con el fin de detectar si un humano es mutante basándose en su secuencia de ADN, verificando la estructura de las subsecuencias con respecto a sus bases nitrogenadas que la componen [ adenina (A), citosina (C), guanina (G) y timina (T)]
